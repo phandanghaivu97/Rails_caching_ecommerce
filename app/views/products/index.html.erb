@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Product list</h2>
+  <p>View product and add to card.</p>
+  <% if @products.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product name</th>
+        <th>Price</th>
+        <th>Procedure</th>
+      </tr>
+    </thead>
+    <tbody>
+        <%= render @products %>
+    </tbody>
+  </table>
+  <% else %>
+    <tr><p>No product!</p></tr>
+  <% end %>
+  <a href="#cart" data-toggle="collapse">Cart (0)</a>
+  <%= link_to "clear all", cart_path(1), method: "delete" %>
+  <div id="cart" class="collapse">
+    <h3>Items in cart</h3>
+    <ul>
+      <li>13233</li>
+      <li>13ad</li>
+    </ul>
+  </div>
+</div>

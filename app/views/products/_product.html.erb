@@ -1,0 +1,12 @@
+<tr>
+  <td><%= product.name %></td>
+  <td><%= product.price %></td>
+  <td>
+    <%= form_for Order.new, url: cart_index_path do |f| %>
+      <%= hidden_field_tag :product_id, product.id %>
+      <%= hidden_field_tag :product_name, product.name %>
+      <%= hidden_field_tag :total_price, product.price %>
+      <%= f.submit "Add to cart" %>
+    <% end %>
+  </td>
+</tr>
