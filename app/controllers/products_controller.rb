@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
   # def index
-  #   Run a find query
   #   @products = Product.all
-  #   @products = Product.all
+  #   @products_fake = Product.all
+  #   @products.present?
+  #   @products_fake.present?
   # end
 
   def index
-    @products = Rails.cache.fetch("products", expires_in: 12.hours) { Product.all }
+    @products = Rails.cache.fetch("products") { Product.all }
   end
 end
